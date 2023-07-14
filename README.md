@@ -1,5 +1,8 @@
 # BAEKJOON_python
 <br>
+
+![Python](https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white)
+
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=rlawjddla0203)](https://solved.ac/rlawjddla0203)
 <br>
