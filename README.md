@@ -1,7 +1,7 @@
 # BAEKJOON_python
 <br>
-[![Solved.ac 
-Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=rlawjddla0203)](https://solved.ac/rlawjddla0203)
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/mini/generate_badge?boj=koosaga)](https://github.com/mazassumnida/mazassumnida)
 
 <br>
 코딩테스트 연습을 위해서 백준 문제 파이썬으로 풀고 기록하는 용도입니다. <br><br>
