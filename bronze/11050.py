@@ -1,6 +1,6 @@
 # 이항 계수 구하기
 # dp 알고리즘 이용
-def binomial_coefficient(n, k):
+def dp(n, k):
     if k == 0 or k == n:
         return 1
     
@@ -14,5 +14,5 @@ def binomial_coefficient(n, k):
     return dp[n][k]
 
 n, k = map(int,input().split())
-result = binomial_coefficient(n, k)
+result = dp(n, k)
 print(result)
