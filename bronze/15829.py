@@ -13,4 +13,4 @@ for i in range(len(test)):
     # 각 항 결과를 확인해보는 코드
     # print("{}번째 항 : {}".format(i, result))
 
-print(result)
+print(result % 1234567891)
