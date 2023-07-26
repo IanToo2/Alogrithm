@@ -3,24 +3,21 @@ import sys
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
+
+# 요세푸스 순열 생성
+count = 0
+# n의 크기의 리스트 생성
 people = [i for i in range(1, n+1)]
-check_num = 0
-result=[]
+# 결과를 저장할 리스트
+result = []
 
-while True:
-    print("\n")
-    print(people)
-    if len(result) == n:
-        break
-    check_num += 3
+while people:
+    
+    count += k - 1
+    
+    if count >= len(people):
+        count %= len(people)
+    
+    result.append(str(people.pop(count)))
 
-    if check_num >7:
-        check_num -= 7
-
-    if people[check_num-1] != 0:
-        print("현재 check_num = {}".format(check_num))
-        result.append(people[check_num-1])
-        print("지워질 번호 = {}".format(people[check_num-1]))
-        people[check_num-1] = 0
-
-print(result)
+print("<", ", ".join(result), ">", sep="")
