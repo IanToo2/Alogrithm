@@ -1,10 +1,10 @@
 import math
 
-H,W,N,M = list(map(int,input().split(' ')))
+H,W,세로,가로 = list(map(int,input().split(' ')))
 
-a = math.ceil(H/(N+1)) # 세로에 몇 명이 앉는지를 계산합니다
-b = math.ceil(W/(M+1)) # 가로에 몇 명이 앉는지를 계산합니다
+행 = math.ceil(W/(가로+1))
+열 = math.ceil(H/(세로+1))
 
-answer = a*b #가로와 세로의 값을 곱합니다
+result = 행*열
 
-print(answer)
+print(result)
