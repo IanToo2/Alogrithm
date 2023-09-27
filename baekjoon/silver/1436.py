@@ -1,8 +1,18 @@
-n = int(input())
-aa = '666'
+import sys
+n = int(sys.stdin.readline())
 
-for i in range(len(aa)-2):
+start = 666 # 제일 처음 666이 들어가는 변수
+count = 0 # 몇번째 666이 들어가는지 확인을 위한 변수
 
-    if aa[i] == '6' and aa[i] == aa[i+1] and aa[i+1] == aa[i+2]:
-        print(aa)
+while True:
 
+    # 666이 포함되는 경우
+    if '666' in str(start):
+        count += 1
+
+        # 종료하는 시점
+        if count == n:
+            print(start)
+            break
+
+    start += 1
