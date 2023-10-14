@@ -9,5 +9,4 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=rlawjddla0203)](https://solved.ac/rlawjddla0203)
 <br>
-코딩테스트 연습을 위해서 백준 문제 파이썬으로 풀고 기록하는 용도입니다. <br><br>
-문제를 해결하면서 기억에 남는 부분들이나 어려운 부분들은 코드 내부에 주석으로 적어놨습니다.<br><br>
+코딩테스트를 위해서 알고리즘 문제들을 다양한 플랫폼에서 풀고 기록하는 용도입니다.
