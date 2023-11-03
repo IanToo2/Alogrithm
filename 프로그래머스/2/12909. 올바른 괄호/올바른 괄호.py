@@ -19,7 +19,6 @@ def solution(s):
             q.append(i)
         
         if len(q) < len(r):
-
             return False
         
         if len(r) > total_len/2:
