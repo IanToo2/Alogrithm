@@ -1,17 +1,15 @@
 import sys
+n = int(input())
 
-input = sys.stdin.readline
+numbers = list(map(int, sys.stdin.readline().rstrip().split()))
 
-t = int(input())
+numset = set(numbers)
+a = list(numset)
+a.sort()
 
-data_list = list(map(int, input().split()))
+numdict = {}
+for i in range(len(a)):
+    numdict[a[i]] = i
 
-# 중복 제거 및 정렬
-set_list = sorted(list(set(data_list)))
-
-# 딕셔너리를 사용하여 값의 인덱스 매핑
-index_dict = {value: index for index, value in enumerate(set_list)}
-
-# 결과 출력
-for value in data_list:
-    print(index_dict[value], end=' ')
+for i in numbers:
+    print(numdict[i], end=' ')
