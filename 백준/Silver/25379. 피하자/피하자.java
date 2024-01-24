@@ -1,34 +1,29 @@
 import java.io.*;
 import java.util.*;
-
+ 
 public class Main {
-
-    public static void main(String[] args) throws IOException, NumberFormatException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        boolean[] data = new boolean[t];
-
-        int leftCnt = 0;
-        int rightCnt = 0;
-        int cnt = 0;
-        int sum = 0;
-        for (int i = 0; i < t; i++) {
-            // 짝수인지 판별
-            if ((Integer.parseInt(st.nextToken()) % 2) == 0) {
-                data[i] = true;
-                leftCnt += i;
-                rightCnt += t-1-i;
-                sum += cnt;
-                cnt +=1;
+        StringTokenizer st;
+		
+        int N = Integer.parseInt(br.readLine()); // 개수
+		
+        long Lcnt = 0;
+        long Rcnt = 0;
+        long sum = 0;
+        int idx = 0;
+		
+        st = new StringTokenizer(br.readLine());
+        for (int i=0; i<N; i++) {
+            int num = Integer.parseInt(st.nextToken());
+			
+            if (num % 2 == 0) {
+                sum += idx++;
+                Lcnt += i;
+                Rcnt += N - 1 - i;
             }
         }
-        if ( leftCnt < rightCnt){
-            System.out.println(leftCnt-sum);
-        }else{
-            System.out.println(rightCnt-sum);
-        }
+        
+        System.out.println(Math.min(Lcnt, Rcnt) - sum);
     }
 }
-
