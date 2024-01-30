@@ -1,4 +1,4 @@
-# BAEKJOON_python
+# BAEKJOON
 
 <br>
 
