@@ -36,34 +36,20 @@ public class Main {
                 map[Y + 1][X + 1] = 1;
                 v[Y + 1][X + 1] = true;
             }
-//            for (int x = 0; x <= N; x++) {
-//                for (int y = 0; y <= N; y++) {
-//                    System.out.print(map[x][y] + " ");
-//                }
-//                System.out.println();
-//            }
-//            for (int x = 0; x <= N; x++) {
-//                for (int y = 0; y <= N; y++) {
-//                    System.out.print(v[x][y] + " ");
-//                }
-//                System.out.println();
-//            }
             bfs();
             sb.append(answer).append("\n");
-//            System.out.println(answer);
         }
         System.out.print(sb);
     }
 
     static void bfs() {
         Queue<int[]> q = new LinkedList<int[]>();
-
+        // 전체 순회
         for (int i = 1; i < N + 1; i++) {
             for (int j = 1; j < M + 1; j++) {
                 // 방문해야 하는 곳
                 if (v[i][j]) {
                     if (map[i][j] == 1) {
-//                        System.out.println("count ++ ");
                         q.add(new int[]{i, j});
                         v[i][j] = false;
                         answer++;
@@ -75,7 +61,6 @@ public class Main {
                             // 상하좌우 확인
                             for (int idx = 0; idx < 4; idx++) {
                                 if (map[X + dictx[idx]][Y + dicty[idx]] == 1 && v[X + dictx[idx]][Y + dicty[idx]]) {
-//                                    System.out.println((X + dictx[idx]) + " " + (Y + dicty[idx]));
                                     q.add(new int[]{X + dictx[idx], Y + dicty[idx]});
                                     v[X + dictx[idx]][Y + dicty[idx]] = false;
                                 }
