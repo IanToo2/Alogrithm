@@ -1,74 +1,84 @@
 import java.io.*;
-
 import java.util.*;
 
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static int N, M, R;
-	static int map[][];
-	static int result[][];
-	static Queue<Integer> q = new LinkedList<>();
+	static int N, M, R, map[][], keep[][];
 
 	public static void main(String[] args) throws Exception {
 		init();
 		logic();
-//		print();
+		printMap();
 	}
 
 	public static void init() throws Exception {
 		st = new StringTokenizer(br.readLine());
-
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
-		R = Integer.parseInt(st.nextToken());
-
 		map = new int[N][M];
-		result = new int[N][M];
-		for (int i = 0; i < N; i++) {
+		R = Integer.parseInt(st.nextToken());
+		for (int x = 0; x < N; x++) {
 			st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < M; j++) {
-				map[i][j] = Integer.parseInt(st.nextToken());
+			for (int y = 0; y < M; y++) {
+				map[x][y] = Integer.parseInt(st.nextToken());
 			}
 		}
 	}
 
 	public static void logic() throws Exception {
-
-		int cnt = 0;
-
-		for (int r = 0; r < R; r++) {
-			cnt = 0;
-			while(cnt < Math.min(N, M) / 2) {
-				for (int i = cnt + 1; i < M - cnt; i++) {
-					result[cnt][i - 1] = map[cnt][i];
+		keep = new int[N][M];
+		int deep = 0;
+		if (N < M) {
+			deep = N / 2;
+		} else {
+			deep = M / 2;
+		}
+		for (int total = 0; total < R; total++) {
+			int cnt = 0;
+			while (true) {
+				if (cnt == deep) {
+					break;
 				}
-				for (int i = cnt + 1; i < N - cnt; i++) {
-					result[i - 1][M - cnt - 1] = map[i][M - cnt - 1];
+				// 맨 위쪽
+				for (int i = M - 1 - cnt; i > cnt; i--) {
+					keep[cnt][i - 1] = map[cnt][i];
 				}
-				for (int i = M - cnt - 2; i >= cnt; i--) {
-					result[N - cnt - 1][i + 1] = map[N - cnt - 1][i];
+				// 맨 오른쪽
+				for (int i = N - 1 - cnt; i > cnt; i--) {
+					keep[i - 1][M - 1 - cnt] = map[i][M - 1 - cnt];
 				}
-				for (int i = N - cnt - 2; i >= cnt; i--) {
-					result[i + 1][cnt] = map[i][cnt];
+				// 맨 아래쪽
+				for (int i = cnt; i < M - 1 - cnt; i++) {
+					keep[N - 1 - cnt][i + 1] = map[N - 1 - cnt][i];
+				}
+				// 맨 왼쪽
+				for (int i = cnt; i < N - 1 - cnt; i++) {
+					keep[i + 1][cnt] = map[i][cnt];
 				}
 				cnt++;
 			}
-
-
-			
+			map = keep;
+			keep = new int[N][M];
+//			printMap();
 //			System.out.println();
-			map = result;
-			result = new int[N][M];
-
 		}
-		print();
+
 	}
 
-	public static void print() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				System.out.print(map[i][j] + " ");
+	public static void printMap() {
+		for (int x = 0; x < N; x++) {
+			for (int y = 0; y < M; y++) {
+				System.out.print(map[x][y] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void printKeep() {
+		for (int x = 0; x < N; x++) {
+			for (int y = 0; y < M; y++) {
+				System.out.print(keep[x][y] + " ");
 			}
 			System.out.println();
 		}
