@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
-	static StringBuilder sb;
+	static StringBuilder sb = new StringBuilder();
 	// ------------------------------------------------------- //
 	// 사람 수, 파티 수
 	static int N, M, R;
@@ -60,14 +60,17 @@ public class Main {
 	}
 
 	public static void print() {
-
+		
 		for (int i = 1; i <= N; i++) {
 			if (i != R && answer[i] == 0) {
-				System.out.println(-1);
+				sb.append(-1).append("\n");
+//				System.out.println(-1);
 			} else {
-				System.out.println(answer[i]);
+				sb.append(answer[i]).append("\n");
+//				System.out.println(answer[i]);
 			}
 		}
+		System.out.println(sb);
 	}
 
 }
