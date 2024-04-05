@@ -53,10 +53,9 @@ public class Solution {
             int[] cur = q.poll();
 
             v[cur[0]][cur[1]] = true;
-//            System.out.println(Arrays.toString(cur));
+
             // 도착시 답 갱신
             if (cur[0] == n - 1 && cur[1] == n - 1) {
-//                System.out.println("도착" + cur[2]);
                 if (answer > cur[2]) {
                     answer = cur[2];
                 }
@@ -69,8 +68,8 @@ public class Solution {
                 int ny = cur[1] + dy[i];
 
                 if (nx < 0 || ny < 0 || nx >= n || ny >= n || v[nx][ny]) continue;
-
-
+                if(cur[2] + map[nx][ny] > answer) continue;
+                
                 q.add(new int[]{nx, ny, cur[2] + map[nx][ny]});
             }
         }
