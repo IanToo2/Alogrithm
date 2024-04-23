@@ -1,43 +1,52 @@
+import java.io.*;
 import java.util.*;
- 
-public class Main {    
-    
-    static ArrayList<Integer> list;
-    static boolean[] visited;
-    static int[] num;
-    
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        
-        //n개의 정수를 입력받는다.
-        int n = scan.nextInt();
-        num = new int[n + 1];
-        for(int i = 1; i <= n; i++) {
-            num[i] = scan.nextInt();
-        }
-        
-        //순서대로 사이클이 발생하는지 dfs로 확인한다.
-        list = new ArrayList<>();
-        visited = new boolean[n + 1];
-        for(int i = 1; i <= n; i++) {
-            visited[i] = true;
-            dfs(i, i);
-            visited[i] = false;
-        }
-        
-        Collections.sort(list); //작은 수 부터 출력하므로 정렬한다.
-        System.out.println(list.size());
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-    }    
-    
-    public static void dfs(int start, int target) {
-        if(visited[num[start]] == false) {
-            visited[num[start]] = true;
-            dfs(num[start], target);
-            visited[num[start]] = false;
-        }
-        if(num[start] == target) list.add(target); //사이클 발생시 해당 숫자를 list에 담아준다.
-    }
+
+public class Main {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	static int n;
+	static boolean[] v;
+	static int[] data;
+	static List<Integer> answer = new ArrayList<>();
+	
+
+	public static void main(String[] args) throws Exception {
+		init();
+		run();
+	}
+
+	private static void init() throws Exception {
+		n = Integer.parseInt(br.readLine());
+		v = new boolean[n + 1];
+		data = new int[n + 1];
+		for (int i = 1; i <= n; i++) {
+			data[i] = Integer.parseInt(br.readLine());
+		}
+	}
+
+	private static void run() {
+		for (int i = 1; i <= n; i++) {
+			v[i] = true;
+			dfs(i, i);
+			v[i] = false;
+
+		}
+		Collections.sort(answer);
+		System.out.println(answer.size());
+		for (int output : answer) {
+			System.out.println(output);
+		}
+	}
+
+	private static void dfs(int cur, int target) {
+		if (data[cur] == target) {
+			answer.add(cur);
+			return;
+		}
+		if (!v[data[cur]]) {
+			v[data[cur]] = true;
+			dfs(data[cur], target);
+			v[data[cur]] = false;
+		}
+	}
 }
