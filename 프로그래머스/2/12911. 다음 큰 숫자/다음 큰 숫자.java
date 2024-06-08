@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int n) {
         int answer = 0;
@@ -6,22 +7,17 @@ class Solution {
         int cnt = 0;
         int startIdx = -1;
         int finIdx = -1;
-        boolean check = false;
+
         for(int i = binaryN.length()-1 ; i >= 0; i --){
             if(finIdx == -1 && binaryN.charAt(i) == '1'){
                 finIdx = 0;
                 startIdx = i;
-                check =true;
             }
             
             if(finIdx == 0 && binaryN.charAt(i) == '0'){
-                check = false;
                 finIdx = i;
             }
-            // System.out.print(binaryN.charAt(i));
         }
-        
-        int[] arr;
         
         if(finIdx == 0){
             int size = binaryN.length();
@@ -45,7 +41,8 @@ class Solution {
                 answer += Math.pow(2, size-i);    
             }
         }
-        
+        // 1. 반복문으로 1씩 증가하면서
+        // 
         return answer;
     }
 }
