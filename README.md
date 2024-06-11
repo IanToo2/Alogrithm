@@ -11,4 +11,3 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=rlawjddla0203)](https://solved.ac/rlawjddla0203)
 <br>
-코딩테스트를 위해서 알고리즘 문제들을 다양한 플랫폼에서 풀고 기록하는 용도입니다.
