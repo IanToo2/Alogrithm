@@ -1,4 +1,5 @@
-# BAEKJOON
+
+### Algorithm Log Repository
 
 <br>
 
