@@ -28,9 +28,12 @@ public class Solution {
                     case "I":
                         x = Integer.parseInt(st.nextToken());
                         y = Integer.parseInt(st.nextToken());
+//                        addList = new LinkedList<>();
                         for(int j = 0 ; j < y ;j++){
-                            list.add(x++, Integer.parseInt(st.nextToken()));
+                            list.add(x+j, Integer.parseInt(st.nextToken()));
+
                         }
+//                        list.addAll(x, addList);
                         break;
                     case "D":
                         x = Integer.parseInt(st.nextToken());
@@ -44,6 +47,7 @@ public class Solution {
                         for(int j = 0; j < y ; j++){
                             list.add(Integer.parseInt(st.nextToken()));
                         }
+
                         break;
                 }
             }
