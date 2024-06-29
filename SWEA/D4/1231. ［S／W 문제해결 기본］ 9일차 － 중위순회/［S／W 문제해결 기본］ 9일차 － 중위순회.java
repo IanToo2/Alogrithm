@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Solution {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringBuilder sb = new StringBuilder();
     static Node[] tree;
     static class Node{
         char value;
@@ -13,10 +14,12 @@ public class Solution {
     public static void main(String[] args) throws Exception{
         for(int i = 1; i <= 10; i++){
             init();
-            System.out.print("#"+i+" ");
+            
+            sb.append("#").append(i).append(" ");
             inorder(tree[1]);
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb);
     }
     private static void init() throws Exception{
         StringTokenizer st;
@@ -48,7 +51,7 @@ public class Solution {
     }
     private static void inorder(Node cur){
         if(cur.left != null) inorder(cur.left);
-        System.out.print(cur.value);
+        sb.append(cur.value);
         if(cur.right != null) inorder(cur.right);
     }
 }
