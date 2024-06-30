@@ -6,6 +6,7 @@ public class Main {
         // 3 <= n <= 999 홀수
         // 사탕 0 ~ 100,000
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
         int[] input = new int[n];
         int[] answer = new int[n];
@@ -19,11 +20,12 @@ public class Main {
             }
         }
         answer[0] = start / 2;
-        System.out.println(answer[0]);
+        sb.append(answer[0]).append("\n");
+        
         for(int i = 1; i < n ; i++){
             answer[i] = input[i-1] - answer[i-1];
-            System.out.println(answer[i]);
+            sb.append(answer[i]).append("\n");
         }
-
+        System.out.print(sb);
     }
 }
