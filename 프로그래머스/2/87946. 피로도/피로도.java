@@ -1,5 +1,6 @@
 import java.util.*;
 class Solution {
+    
     static int size;
     static boolean[] v;
     static int answer = -1;
@@ -14,13 +15,14 @@ class Solution {
         return returnAnswer;
     }
     private static void recur(int k, int[][] dungenons, int depth){
-        // System.out.println(k + " , " + depth);
+        
         answer = Math.max(depth, answer);
         
         for(int i = 0 ; i < size ; i++){
             if(v[i]){
                 continue;
             }
+            
             if(k >= dungenons[i][0]){
                 v[i] = true;
                 recur(k - dungenons[i][1], dungenons, depth+1);
