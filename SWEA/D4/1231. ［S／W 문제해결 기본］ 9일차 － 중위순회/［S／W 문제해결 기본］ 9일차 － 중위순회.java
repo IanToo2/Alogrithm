@@ -1,57 +1,64 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Solution {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringBuilder sb = new StringBuilder();
-    static Node[] tree;
+    static StringTokenizer st;
+
+    static Node[] node;
     static class Node{
         char value;
-        Node left;
-        Node right;
+        int left = -1;
+        int right = -1;
+        Node(char value){
+            this.value = value;
+        }
     }
+
+    static boolean[] v;
 
     public static void main(String[] args) throws Exception{
-        for(int i = 1; i <= 10; i++){
+        for(int i = 1 ; i <= 10 ; i++){
             init();
-            
             sb.append("#").append(i).append(" ");
-            inorder(tree[1]);
+            logic();
             sb.append("\n");
         }
-        System.out.println(sb);
+        System.out.print(sb);
     }
     private static void init() throws Exception{
-        StringTokenizer st;
+        int nodeSize = Integer.parseInt(br.readLine());
+        node = new Node[nodeSize + 1];
 
-        int size = Integer.parseInt(br.readLine());
-
-        tree = new Node[size+1];
-        for(int i = 1; i <=size;i++){
-            tree[i] = new Node();
-        }
-
-        // root => always num 1
-        for(int i = 0; i < size ; i++){
+        for(int i = 1; i<= nodeSize; i++){
             st = new StringTokenizer(br.readLine());
-            int nodeNum = Integer.parseInt(st.nextToken());
-            // node value
-            tree[nodeNum].value = (st.nextToken()).charAt(0);
-            // left child
+            int index = Integer.parseInt(st.nextToken());
+            char value = st.nextToken().charAt(0);
+            node[index] = new Node(value);
+
             if(st.hasMoreTokens()){
-                int leftNode = Integer.parseInt(st.nextToken());
-                tree[nodeNum].left = tree[leftNode];
+                int left = Integer.parseInt(st.nextToken());
+                node[index].left = left;
             }
-            // right child
             if(st.hasMoreTokens()){
-                int rightNode = Integer.parseInt(st.nextToken());
-                tree[nodeNum].right = tree[rightNode];
+                int right = Integer.parseInt(st.nextToken());
+                node[index].right = right;
             }
         }
     }
-    private static void inorder(Node cur){
-        if(cur.left != null) inorder(cur.left);
-        sb.append(cur.value);
-        if(cur.right != null) inorder(cur.right);
+    private static void logic(){
+        // root = 1
+        v = new boolean[node.length];
+        recur(1);
+    }
+    private static void recur(int idx){
+        if(node[idx].left != -1){
+            recur(node[idx].left);
+        }
+        sb.append(node[idx].value);
+        if(node[idx].right != -1){
+            recur(node[idx].right);
+        }
     }
 }
