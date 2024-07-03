@@ -15,9 +15,7 @@ public class Solution {
             this.value = value;
         }
     }
-
-    static boolean[] v;
-
+    
     public static void main(String[] args) throws Exception{
         for(int i = 1 ; i <= 10 ; i++){
             init();
@@ -49,7 +47,6 @@ public class Solution {
     }
     private static void logic(){
         // root = 1
-        v = new boolean[node.length];
         recur(1);
     }
     private static void recur(int idx){
