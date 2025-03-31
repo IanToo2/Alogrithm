@@ -6,7 +6,7 @@ public class Main {
 	static StringTokenizer st;
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	static int n, sum, max;
+	static int n, sum;
 	static int[] x, y, len;
 
 	public static void main(String[] args) throws Exception {
@@ -28,7 +28,6 @@ public class Main {
 		n = Integer.parseInt(br.readLine());
 
 		sum = 0;
-		max = -1;
 
 		x = new int[n];
 		y = new int[n];
