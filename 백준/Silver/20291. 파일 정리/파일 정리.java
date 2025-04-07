@@ -19,16 +19,12 @@ public class Main {
 
 		List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
 		list.sort((a, b) -> {
-			/*
-			 * int cmp = Integer.compare(b.getValue(), a.getValue()); if (cmp == 0) { return
-			 * a.getKey().compareTo(b.getKey()); } return cmp;
-			 */
-			
 			return a.getKey().compareTo(b.getKey());
 		});
 
 		for (Map.Entry<String, Integer> cur : list) {
-			System.out.println(cur.getKey() + " " + cur.getValue());
+			sb.append(cur.getKey()).append(" ").append(cur.getValue()).append("\n");
 		}
+		System.out.println(sb);
 	}
 }
